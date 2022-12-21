@@ -22,4 +22,7 @@ docker restart NOME_DO_CONTAINER # Reinicia a execução do container
 ### Conteúdos
 
 [you need to learn Docker RIGHT NOW!! // Docker Containers 101](https://www.youtube.com/watch?v=eGz9DS-aIeY)
+
+[Docker networking is CRAZY!!](https://www.youtube.com/watch?v=bKFMS5C4CG0)
+
 [Docker in 100 seconds](https://www.youtube.com/watch?v=Gjnup-PuquQ)
