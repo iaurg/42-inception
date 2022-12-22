@@ -20,7 +20,15 @@ docker network ls # Lista todas as networks do docker e máquina
 docker network create NOME_DA_NETWORK # Cria uma network
 ```
 
+### Notas
+
+You might create your own images or you might only use those created by others and published in a registry. To build your own image, **you create a Dockerfile with a simple syntax for defining the steps needed to create the image and run it**. Each instruction in a Dockerfile creates a layer in the image. 
+
+A container is defined by its image as well as any configuration options you provide to it when you create or start it. When a container is removed, any changes to its state that are not stored in persistent storage disappear.
+
 ### Conteúdos
+
+[Docker in 100 seconds](https://www.youtube.com/watch?v=Gjnup-PuquQ)
 
 [Learn Docker in 7 Easy Steps - Full Beginner's Tutorial](https://www.youtube.com/watch?v=gAkwW2tuIqE)
 
@@ -30,4 +38,4 @@ docker network create NOME_DA_NETWORK # Cria uma network
 
 [Docker Compose will BLOW your MIND!! (a tutorial)](https://www.youtube.com/watch?v=DM65_JyGxCo)
 
-[Docker in 100 seconds](https://www.youtube.com/watch?v=Gjnup-PuquQ)
+[Get Started docker](https://docs.docker.com/get-started/)
