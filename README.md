@@ -22,9 +22,13 @@ docker network create NOME_DA_NETWORK # Cria uma network
 
 ### Notas
 
-You might create your own images or you might only use those created by others and published in a registry. To build your own image, **you create a Dockerfile with a simple syntax for defining the steps needed to create the image and run it**. Each instruction in a Dockerfile creates a layer in the image. 
+You might create your own images or you might only use those created by others and published in a registry. To build your own image, **you create a Dockerfile with a simple syntax for defining the steps needed to create the image and run it**. Each instruction in a Dockerfile creates a layer in the image.
 
 A container is defined by its image as well as any configuration options you provide to it when you create or start it. When a container is removed, any changes to its state that are not stored in persistent storage disappear.
+
+[Play with Docker](https://labs.play-with-docker.com/)
+
+PWD is a Docker playground which allows users to run Docker commands in a matter of seconds. It gives the experience of having a free Alpine Linux Virtual Machine in browser, where you can build and run Docker containers
 
 ### Conteúdos
 
