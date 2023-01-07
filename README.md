@@ -1,8 +1,15 @@
+<div style="text-align:center">
+<img src="https://alphaville.github.io/optimization-engine/img/docker.gif" width="180" />
+</div>
+
 # Inception
+
+This project aims to broaden your knowledge of system administration by using Docker. You will virtualize several Docker images, creating them in your new personal virtual machine.
 
 ## Glossário
 
 Imagem = Um pacote de um serviço ou sistema especifico
+
 Container = Imagem em execução
 
 ### Comandos úteis
@@ -30,7 +37,11 @@ A container is defined by its image as well as any configuration options you pro
 
 PWD is a Docker playground which allows users to run Docker commands in a matter of seconds. It gives the experience of having a free Alpine Linux Virtual Machine in browser, where you can build and run Docker containers
 
-### Conteúdos
+---
+
+## Conteúdos
+
+#### Docker
 
 [Docker in 100 seconds](https://www.youtube.com/watch?v=Gjnup-PuquQ)
 
@@ -43,3 +54,9 @@ PWD is a Docker playground which allows users to run Docker commands in a matter
 [Docker Compose will BLOW your MIND!! (a tutorial)](https://www.youtube.com/watch?v=DM65_JyGxCo)
 
 [Get Started docker](https://docs.docker.com/get-started/)
+
+#### NGINX
+
+[NGINX in 100 seconds](https://www.youtube.com/watch?v=JKxlsvZXG7c)
+
+[NGINX configuration](https://www.nginx.com/resources/wiki/start/topics/examples/full/)
