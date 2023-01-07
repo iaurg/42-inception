@@ -1,4 +1,4 @@
-<div style="text-align:center">
+<div align="center">
 <img src="https://alphaville.github.io/optimization-engine/img/docker.gif" width="180" />
 </div>
 
