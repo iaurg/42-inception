@@ -1,0 +1,38 @@
+version: '3.5'
+
+networks:
+  inception-network:
+    name: inception-network
+    driver: bridge
+  
+volumes:
+  wordpress-volume:
+    driver: local
+    driver_opts:
+      type: volume
+      device: /home/${USER}/data/wordpress
+      o: bind
+
+services:
+  nginx: 
+    container_name: nginx
+    build: ./requirements/nginx
+    ports:
+      - 443:443
+    restart: always
+    depends_on:
+      - wordpress
+    volumes: 
+     - wordpress-volume:/var/www/wordpress   
+    networks:
+      - inception-network
+  
+  wordpress:
+    container_name: wordpress
+    build: ./requirements/wordpress
+    volumes: 
+     - wordpress-volume:/var/www/wordpress
+    env_file:
+      - .env
+    networks:
+      - inception-network
