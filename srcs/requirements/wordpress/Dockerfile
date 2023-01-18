@@ -2,7 +2,6 @@ FROM debian:buster
 
 # Install PHP and PHP extensions
 RUN apt-get update && apt-get install -y \
-    mariadb-server \
     php7.3-fpm \
     php7.3-mysql \
     php7.3-curl \
@@ -15,14 +14,15 @@ RUN apt-get update && apt-get install -y \
     php7.3-zip \
     wget
 
+WORKDIR /var/www
 
 # Create directory to start php
 RUN mkdir -p /var/run/php && chmod 777 /var/run/php
 
 # Get Wordpress
-RUN wget https://br.wordpress.org/wordpress-6.1.1-pt_BR.tar.gz && \
-    tar -xzf wordpress-6.1.1-pt_BR.tar.gz && \
-    rm wordpress-6.1.1-pt_BR.tar.gz
+RUN wget https://br.wordpress.org/wordpress-6.1.1-pt_BR.tar.gz \
+    && tar xzf wordpress-6.1.1-pt_BR.tar.gz \
+    && rm wordpress-6.1.1-pt_BR.tar.gz
 
 # Copy wp-config.php
 COPY ./config/wp-config.php /var/www/wordpress/wp-config.php
