@@ -1,24 +1,18 @@
 FROM  debian:buster
 
 # Install MariaDB
-RUN apt-get update && apt-get install -y \
-    mariadb-server \
-    wget
-
-# Create directory to start MariaDB
-RUN mkdir -p /var/run/mysqld && chmod 777 /var/run/mysqld
+RUN apt-get update && apt-get install -y mariadb-server
 
 # Copy my.cnf
-COPY ./config/config.cnf /etc/mysql/mariadb.conf.d/50-server.cnf
+COPY ./config/50-server.cnf /etc/mysql/mariadb.conf.d/
 
-# Copy init.sql
-COPY ./config/init.sql /tmp/init.sql
-
-# Create a volume for MariaDB
-VOLUME /var/lib/mysql
+# Copy sql
+COPY ./tools /var/www/
 
 # Expose port 3306
 EXPOSE 3306
 
+RUN service mysql start && mysql < /var/www/create_db.sql && rm -f /var/www/create_db.sql
+
 # Start MariaDB
-CMD ["mysqld", "--user=root"]
+CMD /usr/bin/mysqld_safe

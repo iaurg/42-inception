@@ -1,3 +1,5 @@
+# The docker-compose file should start with a version tag.
+# We use "3.5"
 version: '3.5'
 
 networks:
@@ -12,21 +14,45 @@ volumes:
       type: volume
       device: /home/${USER}/data/wordpress
       o: bind
+  mariadb-volume:
+    driver: local
+    driver_opts:
+      type: volume
+      device: /home/${USER}/data/mariadb
+      o: bind
 
+# Docker-composes works with services.
+# 1 service = 1 container.
+# A service can be a content management system, server, database server...
+# The section where services will be described begins with 'services'
 services:
+  mariadb: 
+    container_name: mariadb
+    build: ./requirements/mariadb
+    restart: always
+    env_file:
+      - .env
+    volumes:
+      - mariadb-volume:/var/lib/mysql
+    networks:
+      - inception-network
   nginx: 
+    # The name of the container
     container_name: nginx
+    # The image "Dockerfile" to use for the container
     build: ./requirements/nginx
+    # The ports to expose
     ports:
-      - 443:443
+      - 80:80 # http
+      # - 443:443 # https
+    # The restart policy
     restart: always
     depends_on:
       - wordpress
     volumes: 
      - wordpress-volume:/var/www/wordpress   
     networks:
-      - inception-network
-  
+      - inception-network  
   wordpress:
     container_name: wordpress
     build: ./requirements/wordpress
@@ -36,3 +62,5 @@ services:
       - .env
     networks:
       - inception-network
+    depends_on:
+      - mariadb
