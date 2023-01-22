@@ -17,6 +17,11 @@ down:
 
 # down, remove all volume folders and remove itaureli.42.fr from /etc/hosts
 clean: down
+	docker stop $$(docker ps -qa); \
+	docker rm $$(docker ps -qa); \
+	docker rmi -f $$(docker images -qa); \
+	docker volume rm $$(docker volume ls -q); \
+	docker network rm $$(docker network ls -q); \
 	sudo rm -rf /home/${USER}/data
 	sudo sed -i '/127.0.0.1 itaureli.42.fr/d' /etc/hosts
 
