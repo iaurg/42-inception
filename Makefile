@@ -4,7 +4,7 @@ all: up
 # then create all volume folders
 # then compose up
 up: 	
-	sudo chmod 222 /etc/hosts && sudo cat /etc/hosts | grep itaureli.42.fr || \
+	sudo chmod 644 /etc/hosts && sudo cat /etc/hosts | grep itaureli.42.fr || \
 	sudo echo "127.0.0.1 itaureli.42.fr" >> /etc/hosts
 
 	mkdir -p /home/${USER}/data/wordpress && sudo chmod 777 /home/${USER}/data/wordpress
