@@ -4,7 +4,6 @@ version: '3.5'
 
 networks:
   inception-network:
-    name: inception-network
     driver: bridge
   
 volumes:
@@ -43,21 +42,22 @@ services:
     build: ./requirements/nginx
     # The ports to expose
     ports:
-      # - 80:80 # http
       - 443:443 # https
     # The restart policy
     restart: always
     depends_on:
       - wordpress
     volumes: 
-     - wordpress-volume:/var/www/wordpress   
+     - wordpress-volume:/var/www/html   
     networks:
       - inception-network  
   wordpress:
     container_name: wordpress
-    build: ./requirements/wordpress
+    build: 
+      context: ./requirements/wordpress
+      dockerfile: Dockerfile
     volumes: 
-     - wordpress-volume:/var/www/wordpress
+     - wordpress-volume:/var/www/html
     env_file:
       - .env
     networks:
