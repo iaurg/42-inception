@@ -43,8 +43,8 @@ services:
     build: ./requirements/nginx
     # The ports to expose
     ports:
-      - 80:80 # http
-      # - 443:443 # https
+      # - 80:80 # http
+      - 443:443 # https
     # The restart policy
     restart: always
     depends_on:
