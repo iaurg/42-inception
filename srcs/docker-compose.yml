@@ -11,13 +11,13 @@ volumes:
     driver: local
     driver_opts:
       type: volume
-      device: /home/${USER}/data/wordpress
+      device: /home/itaureli/data/wordpress
       o: bind
   mariadb-volume:
     driver: local
     driver_opts:
       type: volume
-      device: /home/${USER}/data/mariadb
+      device: /home/itaureli/data/mariadb
       o: bind
 
 # Docker-composes works with services.
