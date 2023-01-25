@@ -30,12 +30,6 @@ RUN wget https://br.wordpress.org/wordpress-6.1.1-pt_BR.tar.gz \
 COPY ./config/wp-config.php /var/www/html/wp-config.php
 
 COPY ./config/setup.sh /var/www
-# Remove wp-config-sample.php
-# RUN rm /var/www/wordpress/wp-config-sample.php
-
-# Block access to wp-config.php
-RUN chmod 600 /var/www/html/wp-config.php
-
 
 # Expose port 9000
 EXPOSE 9000
